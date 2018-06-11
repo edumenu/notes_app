@@ -29,12 +29,35 @@ body{
 .green{
     background-color: rgb(147,175,88,0.8);
     border: none;
+    outline: none;
 }
 
-.green:hover{
+/*Hover, Active, Focus*/
+.green:hover, .green:active, .green:focus{
     background-color: rgb(147,175,88);
     border: none;
+    outline: none;
 }
+
+/*Modal background*/
+.modal-content{
+    background-color: rgb(147,175,88,0.9);
+}
+
+/*Save button*/
+/*
+.saveButton{
+   background-color: rgb(186,58,59,0.9);
+    border: none;
+    outline: none;    
+}
+
+.saveButton:active,.saveButton:focus,.saveButton:hover{
+   background-color: rgb(186,58,59);
+    border: none;
+    outline: none;    
+}
+*/
 
 /*Footer*/
 .footer{
