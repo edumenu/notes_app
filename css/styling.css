@@ -32,9 +32,22 @@ body{
     outline: none;
 }
 
-/*Hover, Active, Focus*/
+.blue{
+    background-color: rgb(1,53,164, 0.7);
+    border: none;
+    outline: none;
+}
+
+/*Green: Hover, Active, Focus*/
 .green:hover, .green:active, .green:focus{
     background-color: rgb(147,175,88);
+    border: none;
+    outline: none;
+}
+
+/*Blue: Hover, Active, Focus*/
+.blue:hover, .blue:active, .blue:focus{
+    background-color: rgb(1,53,164);
     border: none;
     outline: none;
 }
@@ -43,21 +56,6 @@ body{
 .modal-content{
     background-color: rgb(147,175,88,0.9);
 }
-
-/*Save button*/
-/*
-.saveButton{
-   background-color: rgb(186,58,59,0.9);
-    border: none;
-    outline: none;    
-}
-
-.saveButton:active,.saveButton:focus,.saveButton:hover{
-   background-color: rgb(186,58,59);
-    border: none;
-    outline: none;    
-}
-*/
 
 /*Footer*/
 .footer{

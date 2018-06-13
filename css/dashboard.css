@@ -1,0 +1,88 @@
+ /*Contianer for notes*/    
+.container{
+   width: 50%;
+   height: auto;
+   margin-top: 30px; 
+   background-color: rgb(31,31,32,0.8);
+}  
+
+/*edia queries for smaller screens*/
+@media (max-width: 900px){
+    .container{
+      width: 80%;    
+    }
+      /*styling these buttons*/
+   #allNotes, #editNotes, #doneNotes, #addNotes, #selectColor{
+    width: 20vw;
+    font-size: 2.5vw;
+       align-content: center;
+    }
+} 
+
+/*Styling these buttons*/
+#allNotes, #editNotes, #doneNotes, #addNotes, #selectColor{
+    align-content: center;
+    margin-top: 5px;
+}
+
+/*Hiding these buttons*/
+#allNotes, #doneNotes{
+    display: none;
+}  
+
+/*Textarea*/
+textarea{
+  width: 100%;
+  height: 350px;    
+  max-width: 100%;
+  font-size: 1vw; 
+  border-left-width: 25px;  
+  color: cornflowerblue;    
+  border-color: cornflowerblue; 
+  transition: border-color 2s ease-out;    
+  -webkit-transition: border-color 2s ease-out;    
+  -moz-transition: border-color 2s ease-out;    
+  -o-transition: border-color 2s ease-out;    
+}
+
+/*---------------------------
+       Color Picker
+--------------------------*/
+  /* picker */
+/*
+.color-picker {
+    background: rgb(31,31,32,0.8);
+    padding: 10px;
+    border-radius: 2px;
+}
+*/
+
+.color-picker > div {
+    width: 2vw;
+    display: inline-block;
+    height: 2vw;
+    margin-left: 0.6vw;
+    margin-top: 13px;
+    border-radius: 100%;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.color-picker > div:hover {
+    width: 2vw;
+    display: inline-block;
+    height: 2vw;
+    margin-left: 0.6vw;
+    margin-top: 13px;
+    border-radius: 100%;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.picker-wrapper {
+    padding: 3px;
+}
+
+.color-picker > div:hover {
+    opacity: 1px;
+} 
