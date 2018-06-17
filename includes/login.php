@@ -1,53 +1,69 @@
-    <!-- Login form -->
-     <form action="" method="post" id="loginform">
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                
-                 <!-- Header -->
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" style="color: white;">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <!-- /Header -->
-                  
-                  <!-- Body -->
-                  <div class="modal-body">
-                     
-                      <!-- Email Address -->
-                       <div class="form-group">
-                        <label for="loginemail" class="sr-only">Email Address:</label>
-                        <input type="email" name="loginemail" class="form-control" id="loginemail" placeholder="Email" maxlength="30">
-                        <!--<small id="passwordHelp" class="text-danger">Must be 8-20 characters long.</small>-->
-                      </div>
-                      
-                      <!-- Password -->   
-                       <div class="form-group">
-                        <label for="loginpassword" class="sr-only">Password:</label>
-                        <input type="password" name="loginpassword" class="form-control" id="loginpassword" placeholder="Password" maxlength="30">
-                      </div>
-                      
-                      <!-- Remember me checkbox -->
-                      <div class="form-check" style="width: 100%;">
-                        <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
-                        <label class="form-check-label" for="rememberme">Remember me</label>
-                         <a href="" style="cursor: pointer;" class="float-right" data-dismiss="modal" data-target="#forgotForm" data-toggle="modal">Forgot password?</a>
-                      </div>
-                      
-                  </div>
-                  <!-- /Body -->
-                  
-                  <!-- Footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary mr-auto" data-target="#signupModal" data-toggle="modal" data-dismiss="modal">Register</button>
-                    <input type="submit" name="login" class="btn btn-success" value="Login">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  </div>
-                  <!-- /Footer -->
-            </div>
-        </div>
-     </div>           
-    </form>
-   <!-- /Login form -->
+<?php 
+session_start();
+//DB connection
+include "db.php"
+?>
+
+<?php
+ $arr = array(); 
+ $pass_message = "Your password is incorrect!"; 
+ $duplicate = "Email or password is incorrect";
+ //$emil_message = "Email does not exist";
+  
+ //Get email
+ if(isset($_POST['loginemail'])){
+  $email = filter_var($_POST["loginemail"], FILTER_SANITIZE_EMAIL);     
+ }
+ //Get password
+ if(isset($_POST['loginpassword'])){
+  $password = filter_var($_POST["loginpassword"], FILTER_SANITIZE_STRING);
+ } 
+
+  //Filter array
+ // $errors = array_filter($arr);
+
+   //Check for errors in array
+//   if (!empty($errors)) {
+//    echo json_encode($errors);  
+//   }else{
+
+  //Protection from sql injects
+  $email = mysqli_real_escape_string($connection, $email);
+  $password = mysqli_real_escape_string($connection, $password);
+//
+//  $password = password_hash( $password, PASSWORD_BCRYPT, array('cost' => 12));
+
+//  //Checking for the number of usernames
+  $query = "SELECT * FROM users WHERE email = '$email' AND activation = 'activated'";
+  $result = mysqli_query($connection, $query);
+  //Checking for errors in the query 
+  if(!$result ) {
+   die("QUERY FAILED ." . mysqli_error($connection));
+  }
+
+$row = mysqli_fetch_array($result);
+
+   $db_username = $row['username'];
+   $db_password = $row['password'];
+   $db_user_id = $row['user_id'];
+   $db_email = $row['email'];
+
+   if (password_verify($password,$db_password)){
+     $_SESSION['user_id'] = $db_user_id;
+     $_SESSION['username'] = $db_username;
+     $_SESSION['email'] = $db_email;
+
+     if(empty($_POST['rememberme'])){
+        $arr['success'] = "success";
+         
+        echo json_encode($arr);   
+      }else{
+
+     }
+
+   }else{
+     $arr['passError'] = $pass_message;
+     echo json_encode($arr);
+     exit;
+   }
+?>

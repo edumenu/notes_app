@@ -4,6 +4,7 @@
    height: auto;
    margin-top: 30px; 
    background-color: rgb(31,31,32,0.8);
+    border-radius: 10px;
 }  
 
 /*edia queries for smaller screens*/
@@ -26,7 +27,7 @@
 }
 
 /*Hiding these buttons*/
-#allNotes, #doneNotes{
+#allNotes, #doneNotes, #notepad, .picker-wrapper{
     display: none;
 }  
 
@@ -36,6 +37,7 @@ textarea{
   height: 350px;    
   max-width: 100%;
   font-size: 1vw; 
+  padding: 5px;    
   border-left-width: 25px;  
   color: cornflowerblue;    
   border-color: cornflowerblue; 
@@ -43,6 +45,11 @@ textarea{
   -webkit-transition: border-color 2s ease-out;    
   -moz-transition: border-color 2s ease-out;    
   -o-transition: border-color 2s ease-out;    
+}
+
+/*Table*/
+tr{
+    cursor: pointer;
 }
 
 /*---------------------------

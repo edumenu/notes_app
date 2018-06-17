@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <!-- Arvo Font -->
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+      <!-- Toastr.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <title>My notes</title>
    </head>
   <body>
@@ -44,64 +46,69 @@
             </ul>
         </div>
     </nav>
-    
+    <!-- /Navigation -->
     
     <!-- Container -->
     <div class="container">
       <div class="row" style="margin-bottom: 5px;">
          <!-- First column -->
           <div class="col order-first">
+            <!-- Add notes and All notes button  -->
              <button id="addNotes" type="button" class="btn btn-primary blue">Add Note</button> 
              <button id="allNotes" type="button" class="btn btn-primary blue">All Notes</button>   
           </div>
         
-          <!-- Third column -->
+          <!-- Second column -->
           <div class="col order-last">
+              <!-- Edit notes and Done buttons -->
                <button id="editNotes" type="button" class="btn btn-primary blue float-right">Edit Note</button>
              <button id="doneNotes" type="button" class="btn btn-success green float-right">Done</button>
-          </div> 
-             
+          </div>  
       </div>
+      
       <div class="row" style="margin-bottom: 2px;">
        <!-- Picker selector -->
         <div class="col">
+         
           <div class="picker-wrapper">
            <div style="float:left;"><button class="btn btn-primary blue pull-left" id="selectColor">Select color</button></div>
            <div class="color-picker"></div>
-           </div>    
+           </div>   
             
-        </div>
-          
+        </div>  
       </div>
+      
+      <!-- Notepad -->
        <div id="notepad">
-            <textarea name="" id="" cols="30" rows="10">
-            </textarea>   
-          </div>       
+        <textarea name="" id="" cols="30" rows="10" id="textarea">
+        </textarea>   
+       </div> 
+       
+       <!-- Notes list -->
+       <div id="notes" class="notes">
+        <!-- Ajax call to a php file -->   
+       </div>               
     </div>
-    
-    
-      <div class="picker-wrapper">
-             <button class="btn btn-primary blue pull-left" id="selectColor">Select color</button>
-             <div class="color-picker"></div>
-      </div>
+    <!-- /Container -->
     
     
     <!-- Footer -->
-<!--
     <div class="footer">   
-      <div class="container"> -->
+      <div class="container"> 
        <p style="bottom: 0; position: absolute;">ehdemdume.com Copyright &copy; 2017 -<?php $today =date("Y"); echo $today?></p>
-      <!--</div>
+      </div>
     </div>
--->
+
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Color picker -->
     <script src="piklor.js-master/src/piklor.js"></script>
+   <!-- Toastr.js -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Color picker -->
     <script src="js/picker.js"></script>
   </body>
