@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+  header("location: index.php");    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,10 +44,10 @@
             </ul>
             <ul class="navbar-nav navbar-right">
              <li class="nav-item">
-                <a class="nav-link" href="#">Logged is as <b>username</b></a>
+                <a class="nav-link" href="#">Logged is as <b><?php echo $_SESSION['username'];?></b></a>
               </li> 
              <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="includes/logout.php">Logout</a>
               </li>    
             </ul>
         </div>
