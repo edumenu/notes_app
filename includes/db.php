@@ -8,6 +8,10 @@ $db['db_user'] = "root";
 $db['db_pass'] = "root";
 $db['db_name'] = "test";
 //Prod
+//$db['db_host'] = "mysql1.hostica.com";
+//$db['db_user'] = "edumenu_cms";
+//$db['db_pass'] = "Captain";
+//$db['db_name'] = "edumenu_notes";
 
 foreach($db as $key => $value){
 

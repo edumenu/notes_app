@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['user_id'])){
+  //If user is not logged in, redirect user to the home page    
   header("location: index.php");    
 }
 ?>
@@ -86,14 +87,17 @@ if(!isset($_SESSION['user_id'])){
       
       <!-- Notepad -->
        <div id="notepad">
+       <input type="text" id='header' placeholder="Note header" style="margin-bottom: 1px;">
         <textarea name="" id="" cols="30" rows="10" id="textarea">
         </textarea>   
        </div> 
        
        <!-- Notes list -->
-       <div id="notes" class="notes">
-        <!-- Ajax call to a php file -->   
-       </div>               
+        <!-- Ajax call to a php file -->
+        <div class="list-group" id="notes" class="notes">   
+<!--          <button type="button" class="list-group-item list-group-item-action list-group-item-danger"></button>      -->
+        </div>   
+              
     </div>
     <!-- /Container -->
     
@@ -117,5 +121,7 @@ if(!isset($_SESSION['user_id'])){
 <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Color picker -->
     <script src="js/picker.js"></script>
+    <!-- Notes AJAX -->
+    <script src="js/mynotes.js"></script>
   </body>
 </html>

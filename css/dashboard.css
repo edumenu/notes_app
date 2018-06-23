@@ -52,6 +52,26 @@ tr{
     cursor: pointer;
 }
 
+/*Styling notes*/
+/*Notes lists*/
+#notes{
+    margin-bottom: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/*Header title*/
+#textHeader{
+    font-size: 1em;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*Header title*/
+#timeHeader{
+    font-size: 0.6em;
+}
+
 /*---------------------------
        Color Picker
 --------------------------*/

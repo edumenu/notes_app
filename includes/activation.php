@@ -33,7 +33,7 @@ include "db.php";
     <?php    
 
     //Checking to see if email or activation key is missing
-    if(!isset($_GET['email']) || !isset($_GET['email'])){
+    if(!isset($_GET['email']) || !isset($_GET['key'])){
       echo "<div> There was an error. Please click the activation link in the email.</div>";  
       exit;
      }

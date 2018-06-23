@@ -3,8 +3,6 @@
 session_start();
 //Starting a connection
 include "includes/db.php";
-//Logout file
-//include "includes/logout.php";
 //Rememberme file
 include "includes/rememberme.php";
 ?>

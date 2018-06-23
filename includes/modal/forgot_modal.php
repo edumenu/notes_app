@@ -19,8 +19,8 @@
                       <!-- Email Address -->
                        <div class="form-group">
                         <label for="forgotemail" class="sr-only">Email Address:</label>
-                        <input type="email" name="forgotemail" class="form-control" id="forgotemail" placeholder="Email" maxlength="30">
-                        <!--<small id="passwordHelp" class="text-danger">Must be 8-20 characters long.</small>-->
+                        <input type="email" name="forgotemail" class="form-control" id="forgotemail" placeholder="Email" maxlength="30" required>
+                        <div id="emailForgotMessage" class="text-danger"></div>
                       </div>
                           
                   </div>

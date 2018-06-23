@@ -84,11 +84,11 @@ $row = mysqli_fetch_array($result);
        }else{
          $arr['success'] = "success";
         echo json_encode($arr); 
-      }     
-            
+      }           
      }
 
    }else{
+     //Display an error message if the password is incorrect   
      $arr['passError'] = $pass_message;
      echo json_encode($arr);
      exit;

@@ -146,6 +146,68 @@ $("#loginform").submit(function(event){
     //Function to remove class in input
     function removeClass(id, invalid){
       $(id).removeClass(invalid);  
-    } 
+    }  
+})
+
+//Ajax call for the login modal page
+$("#forgotform").submit(function(event){
+    //Prevent default php processing
+    event.preventDefault();
     
+    //Collect user inputs
+    var datatopost = $(this).serializeArray();
+   // console.log(datatopost);
+    
+    //Send them to signup.php
+    $.ajax({
+        url: "includes/forgot-password.php",
+        type: "post",
+        data: datatopost,
+        //Success for the ajax call
+        success: function(data){
+          //Parsing the JSON object
+         var prod = jQuery.parseJSON(data);    
+              
+             //Error message
+             if(prod.error){
+             console.log(prod.error);     
+             //If the array is empty, peform this
+             addText('#emailForgotMessage',prod.error);
+             addClass('#forgotemail', "is-invalid");
+            }else{
+              removeText('#emailForgotMessage');
+              removeClass('#forgotemail',"is-invalid");
+             }
+            
+          if(prod.mail_success){
+              toastr.success(prod.mail_success, "Activation:", {"closeButton": true, "preventDuplicates": true, "showEasing": "swing"});    
+              }else if(prod.mail_error){
+                toastr.error(prod.mail_error, "Error:", {"closeButton": true, "preventDuplicates": true, "showEasing": "swing"});      
+              }
+        },
+        error: function(){
+          //Error for ajax request    
+          toastr.error('There has been an error with the ajax call', "Error:", {"closeButton": true, "preventDuplicates": true, "showEasing": "swing"});    
+        }
+    });    
+    
+    //Function to add text to html content 
+    function addText(id, message){
+      $(id).html(message);  
+    }  
+    
+    //Function to add text to html content 
+    function removeText(id){
+      $(id).html($(id).html().replace($(id).text(),''));  
+    }
+    
+    //Function to add class in input
+    function addClass(id, invalid){
+      $(id).addClass(invalid);  
+    }
+    
+    //Function to remove class in input
+    function removeClass(id, invalid){
+      $(id).removeClass(invalid);  
+    }  
 })
